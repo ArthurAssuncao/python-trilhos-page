@@ -109,7 +109,7 @@ export const NEXT_WORKSHOP: Workshop = {
       "Boas práticas de nomenclatura de variávels: snake_case e camelCase",
       "Criação de código simples e execução pelo terminal",
     ],
-    registrationUrl: "https://forms.gle/exemploInscricaoPythonNosTrilhos", // Link externo do formulário
+    registrationUrl: "https://forms.gle/6LJx7eQMNjtyveWF8", // Link externo do formulário
   },
 };
 
