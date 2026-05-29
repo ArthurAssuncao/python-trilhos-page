@@ -85,13 +85,16 @@ function App() {
           className="grid scroll-mt-38 items-center gap-8 md:scroll-mt-24 md:grid-cols-12"
         >
           <div className="space-y-6 md:col-span-7">
-            <div className="inline-flex items-center gap-2 rounded-full border border-(--primary-color)/20 bg-white px-3 py-1 text-slate-600 shadow-xs">
-              <span className="flex h-3 w-3 animate-pulse rounded-full bg-(--secondary-color)"></span>
+            <button
+              className="group inline-flex items-center gap-2 rounded-full border border-(--primary-color)/20 bg-white px-3 py-1 text-slate-600 shadow-xs transition-all duration-500 hover:cursor-pointer hover:bg-(--accent-color)"
+              onClick={() => scrollToSection(secaoProximaRef)}
+            >
+              <span className="flex h-3 w-3 animate-pulse rounded-full bg-(--secondary-color) group-hover:bg-(--secondary-color-light)"></span>
               <span className="text-sm font-medium">
                 Inscrições Abertas p/ {`${NEXT_WORKSHOP.title} até `}
               </span>
-              <span className="text-sm font-bold text-(--accent-color)">{`${NEXT_WORKSHOP.details?.registrationDeadline}`}</span>
-            </div>
+              <span className="text-sm font-bold text-(--accent-color) group-hover:text-black">{`${NEXT_WORKSHOP.details?.registrationDeadline}`}</span>
+            </button>
             <h2 className="text-3xl leading-none font-extrabold tracking-tight text-(--primary-color) md:text-5xl">
               Aprenda a programar com{" "}
               <span className="bg-linear-to-r from-(--secondary-color-light) to-(--secondary-color) bg-clip-text text-transparent">
