@@ -15,6 +15,7 @@ import {
 import { useRef } from "react";
 import { FaqSection } from "./components/FaqSection";
 import { RailwayTimeline } from "./components/RailwayTimeline";
+import { COLOR_CSS_VARIABLES } from "./constants/colors"; // Importação das cores estruturadas
 import { NEXT_WORKSHOP } from "./data/projectData";
 
 import Logo from "./assets/logo-texto-horizontal-600x200.png";
@@ -32,40 +33,43 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 antialiased font-sans selection:bg-amber-500 selection:text-slate-900">
-      {/* HEADER / HERO */}
-      <header className="sticky border-b border-slate-800 bg-slate-900/40 backdrop-blur-md top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+    <div
+      style={COLOR_CSS_VARIABLES}
+      className="min-h-screen bg-(--bg-color) font-sans text-slate-800 antialiased selection:bg-(--accent-color) selection:text-(--primary-color)"
+    >
+      {/* HEADER / HERO - Fundo branco/bege translúcido com borda no tom primário */}
+      <header className="sticky top-0 z-50 border-b border-(--primary-color)/20 bg-(--bg-color)/80 shadow-sm backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-4 sm:flex-row">
           <div className="flex items-center gap-3">
             <div className="relative w-120">
               <img src={Logo} alt="Logo" className="h-16" />
-              <p className="text-xs text-slate-400 font-mono absolute bottom-[-6px] left-14 ">
+              <p className="absolute -bottom-1.5 left-14 font-mono text-xs text-slate-500">
                 Fundamentos de Python e Análise de Dados para Engenharia
               </p>
             </div>
           </div>
-          <nav className="flex items-center gap-6 text-sm font-semibold text-slate-300">
+          <nav className="flex items-center gap-6 text-sm font-semibold text-(--primary-color)">
             <button
               onClick={() => scrollToSection(secaoSobreRef)}
-              className="hover:text-amber-400 transition hover:cursor-pointer"
+              className="transition hover:cursor-pointer hover:text-(--accent-color)"
             >
               Sobre
             </button>
             <button
               onClick={() => scrollToSection(secaoTrilhoRef)}
-              className="hover:text-amber-400 transition hover:cursor-pointer"
+              className="transition hover:cursor-pointer hover:text-(--accent-color)"
             >
               Oficinas
             </button>
             <button
               onClick={() => scrollToSection(secaoProximaRef)}
-              className="hover:text-amber-400 transition-colors px-3 py-1 bg-amber-500/10 text-amber-400 rounded-md border border-amber-500/20 hover:cursor-pointer"
+              className="rounded-md border border-(--accent-color)/30 bg-(--accent-color)/10 px-3 py-1 font-bold text-(--primary-color) transition-colors hover:cursor-pointer hover:text-(--accent-color)"
             >
               Próxima Oficina
             </button>
             <button
               onClick={() => scrollToSection(secaoFaqRef)}
-              className="hover:text-amber-400 transition hover:cursor-pointer"
+              className="transition hover:cursor-pointer hover:text-(--accent-color)"
             >
               FAQ
             </button>
@@ -73,62 +77,68 @@ function App() {
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-4 py-12 space-y-24">
+      <main className="mx-auto max-w-6xl space-y-24 px-4 py-12">
         {/* SEÇÃO 1: APRESENTAÇÃO & OBJETIVOS */}
         <section
           id="sobre"
           ref={secaoSobreRef}
-          className="grid md:grid-cols-12 gap-8 items-center scroll-mt-24"
+          className="grid scroll-mt-24 items-center gap-8 md:grid-cols-12"
         >
-          <div className="md:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text text-slate-400">
-              <span className="flex  h-3 w-3 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="text-sm">
+          <div className="space-y-6 md:col-span-7">
+            <div className="inline-flex items-center gap-2 rounded-full border border-(--primary-color)/20 bg-white px-3 py-1 text-slate-600 shadow-xs">
+              <span className="flex h-3 w-3 animate-pulse rounded-full bg-(--secondary-color)"></span>
+              <span className="text-sm font-medium">
                 Inscrições Abertas p/ {`${NEXT_WORKSHOP.title} até `}
               </span>
-              <span className="text-sm font-bold text-yellow-200">{`${NEXT_WORKSHOP.details?.registrationDeadline}`}</span>
+              <span className="text-sm font-bold text-(--accent-color)">{`${NEXT_WORKSHOP.details?.registrationDeadline}`}</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-100 leading-none">
+            <h2 className="text-3xl leading-none font-extrabold tracking-tight text-(--primary-color) md:text-5xl">
               Aprenda a programar com{" "}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-400 to-orange-400">
+              <span className="bg-linear-to-r from-(--secondary-color-light) to-(--secondary-color) bg-clip-text text-transparent">
                 python e análise de dados
               </span>
             </h2>
-            <p className="text-slate-300 text-base md:text-lg leading-relaxed">
-              O objetivo geral do projeto é realizar oficinas com conceitos
+            <p className="text-justify text-base leading-relaxed text-slate-700 md:text-lg">
+              O objectivo do projeto é realizar oficinas com conceitos
               fundamentais de programação e introdução à análise de dados
               utilizando a linguagem Python e bibliotecas de análise de dados.
             </p>
-            <div className="grid sm:grid-cols-3 gap-4 pt-2">
-              <div className="flex gap-3 items-start">
-                <div className="mt-1 p-1 bg-slate-800 rounded text-amber-400">
-                  <GraduationCap size={16} />
+            <div className="grid gap-4 pt-2 sm:grid-cols-3">
+              <div className="flex items-start gap-3">
+                <div className="mt-1 rounded-lg border border-slate-200 bg-white p-1.5 text-(--accent-color) shadow-xs">
+                  <GraduationCap size={16} className="stroke-[2.5]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm">Oficinas</h4>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <h4 className="text-sm font-bold text-(--primary-color)">
+                    Oficinas
+                  </h4>
+                  <p className="mt-0.5 text-xs text-slate-500">
                     Participe de oficinas práticas e desafios práticos.
                   </p>
                 </div>
               </div>
-              <div className="flex gap-3 items-start">
-                <div className="mt-1 p-1 bg-slate-800 rounded text-amber-400">
-                  <BookOpenText size={16} />
+              <div className="flex items-start gap-3">
+                <div className="mt-1 rounded-lg border border-slate-200 bg-white p-1.5 text-(--accent-color) shadow-xs">
+                  <BookOpenText size={16} className="stroke-[2.5]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm">Material de estudo</h4>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <h4 className="text-sm font-bold text-(--primary-color)">
+                    Material de estudo
+                  </h4>
+                  <p className="mt-0.5 text-xs text-slate-500">
                     Resumos para cada oficina com exemplos práticos
                   </p>
                 </div>
               </div>
-              <div className="flex gap-3 items-start">
-                <div className="mt-1 p-1 bg-slate-800 rounded text-amber-400">
-                  <ClipboardCheck size={16} />
+              <div className="flex items-start gap-3">
+                <div className="mt-1 rounded-lg border border-slate-200 bg-white p-1.5 text-(--accent-color) shadow-xs">
+                  <ClipboardCheck size={16} className="stroke-[2.5]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm">Atividades interativas</h4>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <h4 className="text-sm font-bold text-(--primary-color)">
+                    Atividades interativas
+                  </h4>
+                  <p className="mt-0.5 text-xs text-slate-500">
                     Sistema com atividades interativas disponível para os
                     participantes
                   </p>
@@ -136,84 +146,77 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="md:col-span-5 bg-slate-900/60 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-4">
-            <h3 className="text-sm font-mono uppercase tracking-wider text-amber-400 flex items-center gap-2">
+
+          {/* Card de Público-Alvo: Fundo branco para contrastar com o Bege geral da página */}
+          <div className="space-y-4 rounded-2xl border border-slate-200 bg-white/60 p-6 shadow-md md:col-span-5">
+            <h3 className="flex items-center gap-2 font-mono text-sm font-bold tracking-wider text-(--primary-color) uppercase">
               Público-Alvo
             </h3>
 
-            <ul className="space-y-3.5 text-sm text-slate-300">
-              <li className="flex gap-2.5 items-start">
-                <span className="text-amber-400 mt-0.5 text-base leading-none">
-                  <CheckCircle
-                    size={16}
-                    className="text-emerald-400 mt-0.5 shrink-0"
-                  />
+            <ul className="space-y-3.5 text-sm text-slate-700">
+              <li className="flex items-start gap-2.5">
+                <span className="mt-0.5 shrink-0">
+                  <CheckCircle size={16} className="text-(--secondary-color)" />
                 </span>
                 <div>
-                  <strong className="text-slate-100 block font-semibold">
+                  <strong className="block font-semibold text-slate-900">
                     Estudantes de todos os cursos do IF Sudeste MG Santos Dumont
                   </strong>
-                  <span className="text-xs text-slate-400">
+                  <span className="text-xs text-slate-500">
                     Aberto a qualquer aluno que queira conhecer programação em
                     Python.
                   </span>
                 </div>
               </li>
 
-              <li className="flex gap-2.5 items-start">
-                <span className="text-amber-400 mt-0.5 text-base leading-none">
-                  <CheckCircle
-                    size={16}
-                    className="text-emerald-400 mt-0.5 shrink-0"
-                  />
+              <li className="flex items-start gap-2.5">
+                <span className="mt-0.5 shrink-0">
+                  <CheckCircle size={16} className="text-(--secondary-color)" />
                 </span>
                 <div>
-                  <strong className="text-slate-100 block font-semibold">
+                  <strong className="block font-semibold text-slate-900">
                     Prioridade para alguns cursos:
                   </strong>
-                  <span className="text-xs text-slate-300 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800 inline-block mt-1 mr-1">
-                    Eng. Ferroviária e Metroviária
-                  </span>
-                  <span className="text-xs text-slate-300 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800 inline-block mt-1 mr-1">
-                    Téc. em Automação Industrial
-                  </span>
-                  <span className="text-xs text-slate-300 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800 inline-block mt-1">
-                    Téc. em Eletrotécnica
-                  </span>
+                  <div className="mt-1 flex flex-wrap gap-1">
+                    <span className="rounded border border-slate-200 bg-(--bg-color) px-1.5 py-0.5 text-xs font-medium text-(--primary-color)">
+                      Eng. Ferroviária e Metroviária
+                    </span>
+                    <span className="rounded border border-slate-200 bg-(--bg-color) px-1.5 py-0.5 text-xs font-medium text-(--primary-color)">
+                      Téc. em Automação Industrial
+                    </span>
+                    <span className="rounded border border-slate-200 bg-(--bg-color) px-1.5 py-0.5 text-xs font-medium text-(--primary-color)">
+                      Téc. em Eletrotécnica
+                    </span>
+                  </div>
                 </div>
               </li>
 
-              <li className="flex gap-2.5 items-start">
-                <span className="text-amber-400 mt-0.5 text-base leading-none">
-                  <CheckCircle
-                    size={16}
-                    className="text-emerald-400 mt-0.5 shrink-0"
-                  />
+              <li className="flex items-start gap-2.5">
+                <span className="mt-0.5 shrink-0">
+                  <CheckCircle size={16} className="text-(--secondary-color)" />
                 </span>
                 <div>
-                  <strong className="text-slate-100 block font-semibold">
+                  <strong className="block font-semibold text-slate-900">
                     Interessados em programação em Python
                   </strong>
-                  <span className="text-xs text-slate-400">
+                  <span className="text-xs text-slate-500">
                     Desde quem nunca escreveu uma linha de código até quem quer
                     dominar análise de dados.
                   </span>
                 </div>
               </li>
 
-              <li className="flex gap-2.5 items-start">
-                <span className="text-amber-400 mt-0.5 text-base leading-none">
-                  <CheckCircle
-                    size={16}
-                    className="text-emerald-400 mt-0.5 shrink-0"
-                  />
+              <li className="flex items-start gap-2.5">
+                <span className="mt-0.5 shrink-0">
+                  <CheckCircle size={16} className="text-(--secondary-color)" />
                 </span>
                 <div>
-                  <strong className="text-slate-100 block font-semibold">
+                  <strong className="block font-semibold text-slate-900">
                     Futuros Pesquisadores (Bônus)
                   </strong>
-                  <span className="text-xs text-slate-400">
+                  <span className="text-xs text-slate-500">
                     Quem deseja utilizar programação para analisar dados
+                    acadêmicos.
                   </span>
                 </div>
               </li>
@@ -221,23 +224,25 @@ function App() {
           </div>
         </section>
 
-        {/* SEÇÃO 2: O TRILHO FERROVIÁRIO DAS OFICINAS */}
+        {/* SEÇÃO 2: O TRILHO FERROVIÁRIO DAS OFICINAS - Caixa com tom suave de fundo */}
         <section
           id="trilho"
           ref={secaoTrilhoRef}
-          className="bg-slate-900/30 border border-slate-900 rounded-3xl p-6 md:p-10 scroll-mt-24"
+          className="scroll-mt-24 rounded-3xl border border-slate-200 bg-white/60 p-6 shadow-xs md:p-10"
         >
-          <div className="text-center max-w-xl mx-auto mb-10">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">
+          <div className="mx-auto mb-10 max-w-xl text-center">
+            <h2 className="text-2xl font-extrabold tracking-tight text-(--primary-color) md:text-3xl">
               O Trilho de Aprendizado
             </h2>
-            <p className="text-sm text-slate-400 mt-2">
+            <p className="mt-2 text-sm text-slate-600">
               As oficinas são estritamente{" "}
-              <span className="text-amber-400 font-semibold">incrementais</span>
+              <span className="font-bold text-(--secondary-color)">
+                incrementais
+              </span>
               . Acompanhe abaixo o progresso dos módulos ao longo do ano
               ferroviário.
             </p>
-            <p className="text-xs text-slate-400 mt-2">
+            <p className="mt-1 text-xs text-slate-500">
               Você pode participar apenas das oficinas que tiver interesse.
             </p>
           </div>
@@ -247,55 +252,60 @@ function App() {
 
         {/* SEÇÃO 3: PRÓXIMA OFICINA EM DESTAQUE */}
         <section id="proxima" ref={secaoProximaRef} className="scroll-mt-24">
-          <div className="bg-linear-to-b from-slate-900 to-slate-950 border-2 border-amber-500/30 rounded-3xl overflow-hidden shadow-2xl shadow-amber-500/5">
-            <div className="bg-amber-500 px-6 py-3 flex flex-wrap justify-between items-center gap-2">
-              <div className="flex items-center gap-2 text-slate-950 font-bold text-sm tracking-wide uppercase">
+          <div className="overflow-hidden rounded-3xl border-2 border-(--accent-color) bg-white/60 shadow-xl">
+            {/* Barra de título em tom AccentColor (#e6ae1b) e texto em tom escuro primário */}
+            <div className="flex flex-wrap items-center justify-between gap-2 bg-(--accent-color) px-6 py-3">
+              <div className="flex items-center gap-2 text-sm font-black tracking-wide text-(--primary-color) uppercase">
                 <Calendar size={18} className="stroke-[2.5]" />
                 Inscrição Ativa{" "}
                 <CheckCircle
                   size={16}
-                  className="text-emerald-400 mt-0.5 shrink-0"
+                  className="shrink-0 text-(--secondary-color)"
                 />{" "}
                 Próxima Parada
               </div>
-              <span className="text-xs font-mono bg-slate-950 text-amber-400 px-2 py-0.5 rounded font-bold">
+              <span className="rounded bg-(--primary-color) px-2 py-0.5 font-mono text-xs font-bold text-white">
                 {NEXT_WORKSHOP.date}
               </span>
             </div>
+
             <div className="p-6 md:p-10">
-              <div className=" grid md:grid-cols-12 gap-8">
-                <div className="md:col-span-7 space-y-6">
+              <div className="mb-6 grid gap-8 md:grid-cols-12">
+                <div className="space-y-4 md:col-span-7">
                   <div>
-                    <h3 className="text-xl md:text-3xl font-black text-slate-100">
+                    <h3 className="text-xl font-black text-(--primary-color) md:text-3xl">
                       {NEXT_WORKSHOP.title}
                     </h3>
-                    <p className="text-sm md:text-base text-slate-300 mt-2 leading-relaxed">
+                    <p className="mt-2 text-justify text-sm leading-relaxed text-slate-700 md:text-base">
                       {NEXT_WORKSHOP.description}
                     </p>
                   </div>
                 </div>
 
-                <div className="md:col-span-5 flex flex-col justify-between bg-slate-900/40 border border-slate-800 p-6 rounded-2xl space-y-6">
+                <div className="flex flex-col justify-between space-y-6 rounded-2xl border border-slate-200 bg-(--bg-color)/40 p-6 md:col-span-5">
                   <div className="space-y-4">
-                    <div className="flex items-center gap-3 text-slate-300">
-                      <Clock size={20} className="text-amber-400 shrink-0" />
+                    <div className="flex items-center gap-3 text-slate-800">
+                      <Clock
+                        size={20}
+                        className="shrink-0 text-(--primary-color)"
+                      />
                       <div>
-                        <p className="text-xs text-slate-400 uppercase font-mono">
+                        <p className="font-mono text-xs text-slate-500 uppercase">
                           Duração Estimada
                         </p>
-                        <p className="text-sm font-bold">
+                        <p className="text-sm font-bold text-(--primary-color)">
                           {NEXT_WORKSHOP.details?.duration}
                         </p>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3 text-slate-300">
+                    <div className="flex items-start gap-3 text-slate-800">
                       <Calendar
                         size={20}
-                        className="text-amber-400 shrink-0 mt-0.5"
+                        className="mt-0.5 shrink-0 text-(--primary-color)"
                       />
                       <div className="w-full">
-                        <p className="text-xs text-slate-400 uppercase font-mono mb-1">
+                        <p className="mb-1 font-mono text-xs text-slate-500 uppercase">
                           Dias e Horários das Oficinas: escolha um dia
                         </p>
                         <div className="space-y-1">
@@ -303,7 +313,7 @@ function App() {
                             (timeLine, idx) => (
                               <div
                                 key={idx}
-                                className="bg-slate-950/60 px-3 py-1.5 rounded text-xs font-mono border border-slate-800/80"
+                                className="rounded border border-slate-200 bg-white px-3 py-1.5 font-mono text-xs font-medium text-(--primary-color)"
                               >
                                 {timeLine}
                               </div>
@@ -315,17 +325,19 @@ function App() {
                   </div>
                 </div>
               </div>
+
               <div className="space-y-3">
-                <h4 className="text-xs font-mono uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
-                  <FileCode2 size={14} /> Conteúdo Programático do Módulo
+                <h4 className="flex items-center gap-1.5 font-mono text-xs font-bold tracking-wider text-(--primary-color) uppercase">
+                  <FileCode2 size={14} className="text-(--accent-color)" />{" "}
+                  Conteúdo Programático do Módulo
                 </h4>
-                <ul className="grid md:grid-cols-2 grid-cols-1 gap-2 text-sm text-slate-300">
+                <ul className="grid grid-cols-1 gap-2 text-sm text-slate-700 md:grid-cols-2">
                   {NEXT_WORKSHOP.details?.content.map((item, i) => (
                     <li
                       key={i}
-                      className="flex gap-2 items-center bg-slate-900/50 p-2 rounded-lg border border-slate-800/60"
+                      className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 p-2"
                     >
-                      <span className="text-xs font-mono text-amber-500 bg-amber-500/10 w-5 h-5 flex items-center justify-center rounded">
+                      <span className="flex h-5 w-5 items-center justify-center rounded bg-(--accent-color)/20 font-mono text-xs font-bold text-(--primary-color)">
                         {i + 1}
                       </span>
                       {item}
@@ -333,17 +345,19 @@ function App() {
                   ))}
                 </ul>
               </div>
-              <div className="pt-2">
+
+              {/* Botão de chamada para ação com gradiente focado no PrimaryColor e AccentColor */}
+              <div className="pt-6">
                 <a
                   href={NEXT_WORKSHOP.details?.registrationUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 bg-linear-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 text-sm font-extrabold py-3.5 px-4 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
+                  className="flex w-full transform items-center justify-center gap-2 rounded-xl bg-linear-to-r from-(--accent-color) to-(--accent-color-light) px-4 py-3.5 text-center text-sm font-extrabold text-slate-700 shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:opacity-95 active:translate-y-0"
                 >
                   Garantir Minha Vaga (Link Externo)
                   <ExternalLink size={16} />
                 </a>
-                <p className="text-[11px] text-slate-400 text-center mt-2 font-medium">
+                <p className="mt-2 text-center text-[11px] font-medium text-slate-500">
                   Vagas estritamente limitadas a 25 participantes devido à
                   capacidade do laboratório.
                 </p>
@@ -356,43 +370,49 @@ function App() {
         <section
           id="informacoes"
           ref={secaoInformacoesRef}
-          className="grid sm:grid-cols-3 gap-6"
+          className="grid gap-6 sm:grid-cols-3"
         >
-          <div className="bg-slate-900/40 border border-slate-900 p-6 rounded-2xl space-y-2">
-            <BookOpen size={24} className="text-amber-400" />
-            <h3 className="font-bold text-base">Material de Apoio</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
+          <div className="space-y-2 rounded-2xl border border-slate-200 bg-white/60 p-6 shadow-xs">
+            <BookOpen size={24} className="text-(--accent-color)" />
+            <h3 className="text-base font-bold text-(--primary-color)">
+              Material de Apoio
+            </h3>
+            <p className="text-justify text-xs leading-relaxed text-slate-600">
               Resumos teóricos e atividades contextualizadas serão entregues
               após cada módulo, integrando testes de mesa no nosso ecossistema
               de autoavaliação.
             </p>
           </div>
-          <div className="bg-slate-900/40 border border-slate-900 p-6 rounded-2xl space-y-2">
-            <Layers size={24} className="text-amber-400" />
-            <h3 className="font-bold text-base">Fluxo Continuado</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
+          <div className="space-y-2 rounded-2xl border border-slate-200 bg-white/60 p-6 shadow-xs">
+            <Layers size={24} className="text-(--accent-color)" />
+            <h3 className="text-base font-bold text-(--primary-color)">
+              Fluxo Continuado
+            </h3>
+            <p className="text-justify text-xs leading-relaxed text-slate-600">
               Para reter a vaga na oficina seguinte, basta preencher o
               formulário eletrônico avaliativo enviado ao término de cada etapa
               concluída.
             </p>
           </div>
-          <div className="bg-slate-900/40 border border-slate-900 p-6 rounded-2xl space-y-2">
-            <Award size={24} className="text-amber-400" />
-            <h3 className="font-bold text-base">Certificação</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
+          <div className="space-y-2 rounded-2xl border border-slate-200 bg-white/60 p-6 shadow-xs">
+            <Award size={24} className="text-(--accent-color)" />
+            <h3 className="text-base font-bold text-(--primary-color)">
+              Certificação
+            </h3>
+            <p className="text-justify text-xs leading-relaxed text-slate-600">
               Todos os participantes validados receberão certificado emitido
-              pela IF Sudeste MG Campus para cômputo de horas.
+              pela IF Sudeste MG Campus para cômputo de horas complementares.
             </p>
           </div>
         </section>
 
         {/* SEÇÃO 5: PERGUNTAS FREQUENTES (FAQ) */}
-        <section id="faq" ref={secaoFaqRef} className="space-y-8 scroll-mt-24">
-          <div className="text-center max-w-md mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">
+        <section id="faq" ref={secaoFaqRef} className="scroll-mt-24 space-y-8">
+          <div className="mx-auto max-w-md text-center">
+            <h2 className="text-2xl font-extrabold tracking-tight text-(--primary-color) md:text-3xl">
               Dúvidas Frequentes
             </h2>
-            <p className="text-xs md:text-sm text-slate-400 mt-1">
+            <p className="mt-1 text-xs text-slate-600 md:text-sm">
               Ficou com alguma dúvida sobre o funcionamento do projeto de
               ensino? Veja os principais tópicos regulamentados.
             </p>
@@ -403,14 +423,14 @@ function App() {
       </main>
 
       {/* FOOTER */}
-      <footer className="border-t border-slate-900 bg-slate-950 mt-24 py-8 text-center text-xs text-slate-500">
-        <p>
+      <footer className="border-t border-slate-200 bg-white py-8 text-center text-xs text-slate-500 shadow-inner">
+        <p className="font-medium text-slate-600">
           © 2026 Projeto Python nos Trilhos. Desenvolvido com React + TypeScript
           + Tailwind CSS.
         </p>
-        <p className="mt-1">
-          Projeto de ensino aprovado no EDITAL Nº 08, DE 26 DE MARÇO DE 2026
-          SELEÇÃO DE PROJETOS DE ENSINO COM APOIO FINANCEIRO INSTITUCIONAL
+        <p className="mx-auto mt-1 max-w-4xl px-4 leading-relaxed">
+          Projeto de ensino aprovado no EDITAL Nº 08, DE 26 DE MARÇO DE 2026 -
+          SELEÇÃO DE PROJETOS DE ENSINO COM APOIO FINANCEIRO INSTITUCIONAL DA
           PRÓ-REITORIA DE ENSINO (PROEN)
         </p>
       </footer>

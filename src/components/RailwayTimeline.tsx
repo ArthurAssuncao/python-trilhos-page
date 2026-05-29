@@ -1,51 +1,37 @@
 // src/components/RailwayTimeline.tsx
 import { CheckCircle2, Circle, Train, TrainTrack } from "lucide-react";
 import React from "react";
+import { COLOR_CSS_VARIABLES } from "../constants/colors";
 import { ALL_WORKSHOPS, type Workshop } from "../data/projectData";
 
 export const RailwayTimeline: React.FC = () => {
   return (
-    <div className="w-full overflow-x-auto py-12 px-4 scrollbar-thin scrollbar-thumb-slate-700">
-      <div className="min-w-250 md:min-w-0 md:w-full flex flex-col md:flex-row justify-between items-start relative native-railway-path">
+    <div
+      style={COLOR_CSS_VARIABLES}
+      className="w-full scrollbar-thin scrollbar-thumb-(--primary-color) overflow-x-auto px-4 py-12"
+    >
+      <div className="native-railway-path relative flex min-w-250 flex-col items-start justify-between md:w-full md:min-w-0 md:flex-row">
         {/* Linha de Trilho Horizontal de Fundo (Apenas Desktop) */}
-        <div className="hidden md:block absolute top-2 left-4 right-4 h-2  rounded-full z-0">
-          {/* Dormentes do Trilho */}
-          {/* <div
-            className="absolute inset-0 bg-repeat-x pointer-events-none opacity-40"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, #475569 2px, transparent 2px)",
-              backgroundSize: "16px 100%",
-            }}
-          ></div> */}
-          <div className="flex flex-row overflow-hidden items-center justify-center ">
+        <div className="absolute top-2 right-4 left-4 z-0 hidden h-2 rounded-full md:block">
+          <div className="flex flex-row items-center justify-center overflow-hidden">
             {Array.from({ length: 41 }).map((_, index) => (
               <TrainTrack
                 key={index}
                 size={36}
-                className={`text-amber-400 rotate-45 mx-[-1.5px]`}
+                className="mx-[-1.5px] rotate-45 text-(--accent-color)"
               />
             ))}
           </div>
         </div>
 
-        {/* Linha de Trilho Vertical de Fundo (Apenas Mobile/Tablet Pequeno via CSS custom ou Flow) */}
-        {/* Usaremos fluxo de blocos nativos mobile com borda esquerda simulando o trilho vertical */}
-        <div className="md:hidden absolute top-0 bottom-0 left-5.75 w-6 bg-slate-700 z-0">
-          {/* <div
-            className="absolute inset-0 bg-repeat-y pointer-events-none opacity-40"
-            style={{
-              backgroundImage:
-                "linear-gradient(to bottom, #475569 2px, transparent 2px)",
-              backgroundSize: "100% 16px",
-            }}
-          ></div> */}
-          <div className="flex flex-col overflow-hidden items-center justify-center ">
+        {/* Linha de Trilho Vertical de Fundo (Apenas Mobile/Tablet Pequeno) */}
+        <div className="absolute top-0 bottom-0 left-5.75 z-0 w-6 bg-transparent md:hidden">
+          <div className="flex flex-col items-center justify-center overflow-hidden">
             {Array.from({ length: 25 }).map((_, index) => (
               <TrainTrack
                 key={index}
                 size={36}
-                className={`text-amber-400 rotate-135 my-[-1.5px]`}
+                className="my-[-1.5px] rotate-135 text-(--accent-color)"
               />
             ))}
           </div>
@@ -58,54 +44,62 @@ export const RailwayTimeline: React.FC = () => {
           return (
             <div
               key={workshop.id}
-              className={`flex md:flex-col items-start md:items-center relative z-10 w-full md:w-1/7 mb-12 md:mb-0 text-left md:text-center px-2 transition-all duration-300`}
+              className="relative z-10 mb-12 flex w-full items-start px-2 text-left transition-all duration-300 md:mb-0 md:w-1/7 md:flex-col md:items-center md:text-center"
             >
               {/* Indicador / Nó Ferroviário (Trem ou Círculo) */}
-              <div className="flex items-center justify-center min-w-13.5 min-h-13.5 md:mb-4 bg-slate-900 rounded-full border-2 border-slate-700 shadow-xl z-20 mr-4 md:mr-0">
+              <div className="z-20 mr-4 flex min-h-13.5 min-w-13.5 items-center justify-center rounded-full border-2 border-(--primary-color) bg-(--bg-color) shadow-xl md:mr-0 md:mb-4">
                 {isCurrent ? (
-                  <div className="p-2 bg-amber-500 rounded-full animate-bounce text-slate-900 shadow-lg shadow-amber-500/30">
+                  <div className="animate-bounce rounded-full bg-(--accent-color) p-2 text-(--primary-color) shadow-(--accent-color)/30 shadow-lg">
                     <Train size={24} />
                   </div>
                 ) : isCompleted ? (
                   <CheckCircle2
                     size={24}
-                    className="text-emerald-500 bg-slate-900 rounded-full"
+                    className="bg-(--bg-color)-[var(--secondary-color)] rounded-full"
                   />
                 ) : (
-                  <Circle size={16} className="text-slate-500 fill-slate-800" />
+                  <Circle size={16} className="fill-slate-200 text-slate-400" />
                 )}
               </div>
 
               {/* Informações da Oficina */}
               <div className="flex flex-col md:items-center">
+                {/* Tag de Data */}
                 <span
-                  className={`text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded mb-1 ${
+                  className={`mb-1 rounded px-2 py-0.5 text-xs font-bold tracking-wider uppercase ${
                     isCurrent
-                      ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
+                      ? "border border-(--accent-color)/40 bg-(--accent-color)/20 text-(--primary-color)"
                       : isCompleted
-                        ? "bg-emerald-500/10 text-emerald-400"
-                        : "bg-slate-800 text-slate-400"
+                        ? "bg-(--secondary-color)/10 text-(--secondary-color)"
+                        : "bg-slate-200 text-slate-600"
                   }`}
                 >
                   {workshop.date}
                 </span>
 
+                {/* Título (Oficina X) */}
                 <h4
-                  className={`text-sm font-bold tracking-tight ${isCurrent ? "text-amber-400 font-extrabold text-base" : "text-slate-100"}`}
+                  className={`text-sm font-bold tracking-tight ${
+                    isCurrent
+                      ? "text-base font-extrabold text-(--accent-color)"
+                      : "text-(--primary-color)"
+                  }`}
                 >
                   {workshop.title.split(":")[0]}
                 </h4>
 
+                {/* Descrição Curta */}
                 <p
-                  className="text-xs font-medium text-slate-300 mt-1  max-w-45 md:max-w-none"
+                  className="mt-1 max-w-45 text-xs font-medium text-slate-800 md:max-w-none"
                   lang="pt-br"
                   style={{ hyphens: "auto", wordBreak: "break-word" }}
                 >
                   {workshop.title.split(":")[1] || workshop.title}
                 </p>
 
+                {/* Descrição Longa */}
                 <p
-                  className="hidden md:block text-[11px] text-slate-400 mt-2 px-1 max-w-40 leading-relaxed text-justify "
+                  className="mt-2 hidden max-w-40 px-1 text-justify text-[11px] leading-relaxed text-slate-600 md:block"
                   lang="pt-br"
                   style={{ hyphens: "auto", wordBreak: "break-word" }}
                 >

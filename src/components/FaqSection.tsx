@@ -1,6 +1,7 @@
 // src/components/FaqSection.tsx
 import { ChevronDown, HelpCircle } from "lucide-react";
 import React, { useState } from "react";
+import { COLOR_CSS_VARIABLES } from "../constants/colors"; // Importando as variáveis unificadas
 import { FAQ_ITEMS } from "../data/projectData";
 
 export const FaqSection: React.FC = () => {
@@ -11,27 +12,33 @@ export const FaqSection: React.FC = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto space-y-4">
+    <div style={COLOR_CSS_VARIABLES} className="mx-auto space-y-4">
       {FAQ_ITEMS.map((item) => {
         const isOpen = openId === item.id;
         return (
+          // Alterado para fundo branco sólido, destacando os cards do fundo geral da página
           <div
             key={item.id}
-            className="bg-slate-800/60 border border-slate-700/50 rounded-xl overflow-hidden transition-all duration-300 hover:border-slate-600 shadow-sm"
+            className="overflow-hidden rounded-xl border-2 border-slate-200 bg-white shadow-xs transition-all duration-300 hover:border-(--accent-color)"
           >
             <button
               onClick={() => toggleFaq(item.id)}
-              className="w-full flex justify-between items-center p-5 text-left text-slate-100 font-medium focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition hover:cursor-pointer"
+              // Alterado o texto para o PrimaryColor e o anel de foco para o AccentColor
+              className="flex w-full items-center justify-between p-5 text-left font-bold text-(--primary-color) transition hover:cursor-pointer focus:ring-2 focus:ring-(--accent-color)/50 focus:outline-none"
             >
               <div className="flex items-center gap-3">
-                <HelpCircle size={18} className="text-amber-400 shrink-0" />
-                <span className="text-sm md:text-base leading-snug">
+                {/* Ícone de ajuda adaptado para a cor primária ou de destaque */}
+                <HelpCircle
+                  size={18}
+                  className="shrink-0 text-(--accent-color)"
+                />
+                <span className="text-sm leading-snug md:text-base">
                   {item.question}
                 </span>
               </div>
               <ChevronDown
                 size={18}
-                className={`text-slate-400 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 text-amber-400" : ""}`}
+                className={`shrink-0 text-slate-400 transition-transform duration-300 ${isOpen ? "rotate-180 text-(--accent-color)" : ""}`}
               />
             </button>
 
@@ -40,7 +47,8 @@ export const FaqSection: React.FC = () => {
               className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
             >
               <div className="overflow-hidden">
-                <div className="p-5 pt-2 text-sm md:text-base text-slate-300 border-t border-slate-700/30 leading-relaxed bg-slate-800/30">
+                {/* Resposta com fundo cinza/bege bem suave (bg-slate-50) e texto escuro legível */}
+                <div className="border-t border-slate-100 bg-white p-5 pt-3 text-sm leading-relaxed text-slate-700 md:text-base">
                   {item.answer}
                 </div>
               </div>
