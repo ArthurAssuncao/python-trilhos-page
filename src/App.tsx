@@ -77,7 +77,7 @@ function App() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl space-y-24 px-4 py-12">
+      <main className="mx-auto max-w-6xl space-y-12 px-4 py-12">
         {/* SEÇÃO 1: APRESENTAÇÃO & OBJETIVOS */}
         <section
           id="sobre"

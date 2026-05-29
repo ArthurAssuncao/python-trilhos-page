@@ -1,73 +1,72 @@
-# React + TypeScript + Vite
+# 🚂 Python nos Trilhos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **Fundamentos de Python e Análise de Dados para Engenharia**
+> Projeto de Ensino aprovado no EDITAL Nº 08, DE 26 DE MARÇO DE 2026 (PROEN / IF Sudeste MG).
 
-Currently, two official plugins are available:
+O **Python nos Trilhos** é um projeto de ensino continuado projetado para capacitar discentes no desenvolvimento de raciocínio computacional, lógica de programação e análise de dados utilizando a linguagem **Python** e suas principais bibliotecas científicas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+O projeto adota uma metodologia ágil, prática e estritamente **incremental**, simulando uma malha ferroviária onde cada oficina representa uma estação de ganho de conhecimento.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🎨 Identidade Visual & Design System
 
-## Expanding the ESLint configuration
+O projeto adota uma estética industrial e ferroviária limpa. Caso precise replicar a paleta de cores em subcomponentes ou materiais de divulgação, utilize o padrão estabelecido no ecossistema:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* **Fundo Principal (Canvas):** `#efe7da` (Bege Claro Industrial)
+* **Cor Primária (Estrutura/Texto):** `#1c517b` (Azul Ferroviário)
+* **Cor Secundária (Sucesso/Tags):** `#1e6a2c` (Verde Vagão)
+* **Cor de Destaque (Alertas/Trilhos):** `#e6ae1b` (Amarelo Alerta)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 👥 Público-Alvo
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+As oficinas foram desenhadas para integrar diferentes níveis de conhecimento, do absoluto zero à análise avançada, abrangendo:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+* **Estudantes de todos os cursos do IF Sudeste MG - Campus Santos Dumont:** Qualquer aluno matriculado que queira iniciar na programação.
+* **Cursos com Critério de Prioridade:**
+    * Engenharia Ferroviária e Metroviária
+    * Técnico em Automação Industrial
+    * Técnico em Eletrotécnica
+* **Interessados em Programação e Ciência de Dados:** Acadêmicos focados no ecossistema *IF Maker*.
+* **Futuros Pesquisadores (Bônus):** Alunos que buscam automatizar a análise de dados brutos para a submissão de artigos científicos e resumos em congressos.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🗺️ O Trilho de Aprendizado (Ementa das Oficinas)
+
+As oficinas ocorrem de forma incremental ao longo do ano ferroviário. Os participantes recebem resumos teóricos e atividades de autoavaliação baseadas em testes de mesa eletrônicos.
+
+1. **Estação Inicial:** Sintaxe Básica, Variáveis e Tipos de Dados.
+2. **Desvios de Controle:** Estruturas Condicionais e Operadores Lógicos.
+3. **Laços de Repetição:** Automação de tarefas com `while` e `for`.
+4. **Estruturas de Dados:** Manipulação de Listas, Dicionários e Tuplas.
+5. **Modularização:** Criação de Funções e escopo de variáveis.
+6. **Entrada do Big Data:** Manipulação de dados estruturados com a biblioteca **Pandas**.
+7. **Estação Final:** Visualização e geração de gráficos científicos com **Matplotlib**.
+
+---
+
+## 🛠️ Tecnologias do Painel Web
+
+O painel visual do projeto (Landing Page) foi construído utilizando tecnologias modernas de desenvolvimento front-end para garantir performance e responsividade:
+
+* **React** + **TypeScript**
+* **Tailwind CSS** (Estilização via variáveis de escopo dinâmico encapsuladas)
+* **Lucide React** (Pacote de Ícones Vetoriais)
+* **Vite** (Build Tooling rápido)
+
+---
+
+## 🚀 Como Executar o Painel Localmente
+
+### Pré-requisitos
+Antes de começar, certifique-se de ter o [Node.js](https://nodejs.org/) instalado em sua máquina.
+
+### Passo a Passo
+
+1. **Clonar o Repositório:**
+   ```bash
+   git clone [https://github.com/seu-usuario/python-nos-trilhos.git](https://github.com/seu-usuario/python-nos-trilhos.git)
+   cd python-nos-trilhos
