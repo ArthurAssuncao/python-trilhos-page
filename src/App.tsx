@@ -19,6 +19,7 @@ import { COLOR_CSS_VARIABLES } from "./constants/colors"; // Importação das co
 import { NEXT_WORKSHOP } from "./data/projectData";
 
 import Logo from "./assets/logo-texto-horizontal-600x200.png";
+import { InstitutionalNotice } from "./components/InstitutionalNotice";
 
 function App() {
   const secaoSobreRef = useRef<HTMLDivElement>(null);
@@ -37,6 +38,7 @@ function App() {
       style={COLOR_CSS_VARIABLES}
       className="min-h-screen bg-(--bg-color) font-sans text-slate-800 antialiased selection:bg-(--accent-color) selection:text-(--primary-color)"
     >
+      <InstitutionalNotice />
       {/* HEADER / HERO - Fundo branco/bege translúcido com borda no tom primário */}
       <header className="sticky top-0 z-50 border-b border-(--primary-color)/20 bg-(--bg-color)/80 shadow-sm backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-4 sm:flex-row">
@@ -82,7 +84,7 @@ function App() {
         <section
           id="sobre"
           ref={secaoSobreRef}
-          className="grid scroll-mt-38 items-center gap-8 md:scroll-mt-24 md:grid-cols-12"
+          className="grid scroll-mt-38 items-center gap-8 md:scroll-mt-26 md:grid-cols-12"
         >
           <div className="space-y-6 md:col-span-7">
             <button
@@ -231,7 +233,7 @@ function App() {
         <section
           id="trilho"
           ref={secaoTrilhoRef}
-          className="scroll-mt-38 rounded-3xl border border-slate-200 bg-white/60 p-6 shadow-xs md:scroll-mt-24 md:p-10"
+          className="scroll-mt-38 rounded-3xl border border-slate-200 bg-white/60 p-6 shadow-xs md:scroll-mt-26 md:p-10"
         >
           <div className="mx-auto mb-10 max-w-xl text-center">
             <h2 className="text-2xl font-extrabold tracking-tight text-(--primary-color) md:text-3xl">
@@ -257,7 +259,7 @@ function App() {
         <section
           id="proxima"
           ref={secaoProximaRef}
-          className="scroll-mt-38 md:scroll-mt-24"
+          className="scroll-mt-38 md:scroll-mt-26"
         >
           <div className="overflow-hidden rounded-3xl border-2 border-(--accent-color) bg-white/60 shadow-xl">
             {/* Barra de título em tom AccentColor (#e6ae1b) e texto em tom escuro primário */}
@@ -417,7 +419,7 @@ function App() {
         <section
           id="faq"
           ref={secaoFaqRef}
-          className="scroll-mt-38 space-y-8 md:scroll-mt-24"
+          className="scroll-mt-38 space-y-8 md:scroll-mt-26"
         >
           <div className="mx-auto max-w-md text-center">
             <h2 className="text-2xl font-extrabold tracking-tight text-(--primary-color) md:text-3xl">
