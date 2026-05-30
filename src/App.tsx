@@ -50,7 +50,7 @@ function App() {
               </p>
             </div>
           </div>
-          <nav className="flex w-full items-center justify-end gap-6 text-sm font-semibold text-(--primary-color)">
+          <nav className="flex w-full items-center justify-end gap-2 text-sm font-semibold text-(--primary-color) md:gap-6 md:text-base">
             <button
               onClick={() => scrollToSection(secaoSobreRef)}
               className="rounded-lg border-2 border-transparent p-2 transition hover:cursor-pointer hover:border-(--accent-color) hover:text-(--accent-color)"
