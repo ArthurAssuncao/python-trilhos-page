@@ -41,37 +41,37 @@ function App() {
       <InstitutionalNotice />
       {/* HEADER / HERO - Fundo branco/bege translúcido com borda no tom primário */}
       <header className="sticky top-0 z-50 border-b border-(--primary-color)/20 bg-(--bg-color)/80 shadow-sm backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-4 sm:flex-row">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-4 py-4 sm:flex-row md:items-center">
           <div className="flex items-center gap-3">
-            <div className="relative w-120">
+            <div className="md:116 relative w-96 max-w-full">
               <img src={Logo} alt="Logo" className="h-16" />
               <p className="absolute -bottom-1.5 left-14 font-mono text-xs text-slate-500">
-                Fundamentos de Python e Análise de Dados para Engenharia
+                Fundamentos de Python e Análise de Dados
               </p>
             </div>
           </div>
-          <nav className="flex items-center gap-6 text-sm font-semibold text-(--primary-color)">
+          <nav className="flex w-full items-center justify-end gap-6 text-sm font-semibold text-(--primary-color)">
             <button
               onClick={() => scrollToSection(secaoSobreRef)}
-              className="transition hover:cursor-pointer hover:text-(--accent-color)"
+              className="rounded-lg border-2 border-transparent p-2 transition hover:cursor-pointer hover:border-(--accent-color) hover:text-(--accent-color)"
             >
               Sobre
             </button>
             <button
               onClick={() => scrollToSection(secaoTrilhoRef)}
-              className="transition hover:cursor-pointer hover:text-(--accent-color)"
+              className="rounded-lg border-2 border-transparent p-2 transition hover:cursor-pointer hover:border-(--accent-color) hover:text-(--accent-color)"
             >
               Oficinas
             </button>
             <button
               onClick={() => scrollToSection(secaoProximaRef)}
-              className="rounded-md border border-(--accent-color)/30 bg-(--accent-color)/10 px-3 py-1 font-bold text-(--primary-color) transition-colors hover:cursor-pointer hover:text-(--accent-color)"
+              className="rounded-lg border-2 border-(--accent-color)/30 bg-(--accent-color)/10 p-2 px-3 py-1 font-bold text-(--primary-color) transition-all hover:cursor-pointer hover:border-(--accent-color) hover:text-(--accent-color)"
             >
               Próxima Oficina
             </button>
             <button
               onClick={() => scrollToSection(secaoFaqRef)}
-              className="transition hover:cursor-pointer hover:text-(--accent-color)"
+              className="rounded-lg border-2 border-transparent p-2 transition hover:cursor-pointer hover:border-(--accent-color) hover:text-(--accent-color)"
             >
               FAQ
             </button>
@@ -79,7 +79,7 @@ function App() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl space-y-12 px-4 py-12">
+      <main className="mx-auto max-w-7xl space-y-12 px-4 py-12">
         {/* SEÇÃO 1: APRESENTAÇÃO & OBJETIVOS */}
         <section
           id="sobre"
@@ -91,7 +91,7 @@ function App() {
               className="group inline-flex items-center gap-2 rounded-full border border-(--primary-color)/20 bg-white px-3 py-1 text-slate-600 shadow-xs transition-all duration-500 hover:cursor-pointer hover:bg-(--accent-color)"
               onClick={() => scrollToSection(secaoProximaRef)}
             >
-              <span className="flex h-3 w-3 animate-pulse rounded-full bg-(--secondary-color) group-hover:bg-(--secondary-color-light)"></span>
+              <span className="flex h-4 min-h-4 w-4 min-w-4 animate-pulse rounded-full bg-(--secondary-color) group-hover:bg-(--secondary-color-light) md:h-3 md:min-h-3 md:w-3 md:min-w-3"></span>
               <span className="text-sm font-medium">
                 Inscrições Abertas p/ {`${NEXT_WORKSHOP.title} até `}
               </span>
