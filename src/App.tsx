@@ -104,7 +104,7 @@ function App() {
               </span>
             </h2>
             <p className="text-justify text-base leading-relaxed text-slate-700 md:text-lg">
-              O objectivo do projeto é realizar oficinas com conceitos
+              O objetivo do projeto é realizar oficinas com conceitos
               fundamentais de programação e introdução à análise de dados
               utilizando a linguagem Python e bibliotecas de análise de dados.
             </p>
