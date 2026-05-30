@@ -10,7 +10,7 @@ export const RailwayTimeline: React.FC = () => {
       style={COLOR_CSS_VARIABLES}
       className="w-full scrollbar-thin scrollbar-thumb-(--primary-color) overflow-x-auto px-4 py-12"
     >
-      <div className="native-railway-path relative flex min-w-250 flex-col items-start justify-between md:w-full md:min-w-0 md:flex-row">
+      <div className="native-railway-path relative flex min-w-auto flex-col items-start justify-between md:w-full md:min-w-0 md:flex-row">
         {/* Linha de Trilho Horizontal de Fundo (Apenas Desktop) */}
         <div className="absolute top-2 right-4 left-4 z-0 hidden h-2 rounded-full md:block">
           <div className="flex flex-row items-center justify-center overflow-hidden">
@@ -44,7 +44,7 @@ export const RailwayTimeline: React.FC = () => {
           return (
             <div
               key={workshop.id}
-              className="relative z-10 mb-12 flex w-full items-start px-2 text-left transition-all duration-300 md:mb-0 md:w-1/7 md:flex-col md:items-center md:text-center"
+              className="relative z-10 mb-12 flex w-auto items-start px-2 text-left transition-all duration-300 md:mb-0 md:w-full md:flex-col md:items-center md:text-center"
             >
               {/* Indicador / Nó Ferroviário (Trem ou Círculo) */}
               <div className="z-20 mr-4 flex min-h-13.5 min-w-13.5 items-center justify-center rounded-full border-2 border-(--primary-color) bg-(--bg-color) shadow-xl md:mr-0 md:mb-4">
