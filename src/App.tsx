@@ -50,7 +50,7 @@ function App() {
               </p>
             </div>
           </div>
-          <nav className="flex w-full items-center justify-end gap-2 text-sm font-semibold text-(--primary-color) md:gap-6 md:text-base">
+          <nav className="flex w-full items-center justify-center gap-2 text-sm font-semibold text-(--primary-color) md:justify-end md:gap-6 md:text-base">
             <button
               onClick={() => scrollToSection(secaoSobreRef)}
               className="rounded-lg border-2 border-transparent p-2 transition hover:cursor-pointer hover:border-(--accent-color) hover:text-(--accent-color)"
@@ -363,7 +363,8 @@ function App() {
                   rel="noopener noreferrer"
                   className="flex w-full transform items-center justify-center gap-2 rounded-xl bg-linear-to-r from-(--accent-color) to-(--accent-color-light) px-4 py-3.5 text-center text-sm font-extrabold text-slate-700 shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:opacity-95 active:translate-y-0"
                 >
-                  Garantir Minha Vaga (Link Externo)
+                  Realizar minha inscrição na{" "}
+                  {`${NEXT_WORKSHOP.title.split(":")[0]}`} (Google Forms)
                   <ExternalLink size={16} />
                 </a>
                 <p className="mt-2 text-center text-[11px] font-medium text-slate-500">

@@ -6,10 +6,7 @@ import { ALL_WORKSHOPS, type Workshop } from "../data/projectData";
 
 export const RailwayTimeline: React.FC = () => {
   return (
-    <div
-      style={COLOR_CSS_VARIABLES}
-      className="w-full scrollbar-thin scrollbar-thumb-(--primary-color) overflow-x-auto px-4 py-12"
-    >
+    <div style={COLOR_CSS_VARIABLES} className="w-full px-4 py-2">
       <div className="native-railway-path relative flex min-w-auto flex-col items-start justify-between md:w-full md:min-w-0 md:flex-row">
         {/* Linha de Trilho Horizontal de Fundo (Apenas Desktop) */}
         <div className="absolute top-2 right-4 left-4 z-0 hidden h-2 rounded-full md:block">
@@ -30,7 +27,7 @@ export const RailwayTimeline: React.FC = () => {
             {Array.from({ length: 25 }).map((_, index) => (
               <TrainTrack
                 key={index}
-                size={36}
+                size={34}
                 className="my-[-1.5px] rotate-135 text-(--accent-color)"
               />
             ))}

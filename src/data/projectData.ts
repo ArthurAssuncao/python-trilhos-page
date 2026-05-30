@@ -130,7 +130,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     id: 3,
     question: "Haverá emissão de certificados?",
     answer:
-      "Sim! A certificação será emitida como participação em oficina, servindo para computar horas de atividades complementares/extracurriculares.",
+      "Sim! Pretendemos solicitar a certificação para participantes das oficinas, servindo para computar horas de atividades complementares/extracurriculares.",
   },
   {
     id: 4,
