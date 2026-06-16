@@ -27,6 +27,9 @@ function App() {
   const secaoProximaRef = useRef<HTMLDivElement>(null);
   const secaoInformacoesRef = useRef<HTMLDivElement>(null);
   const secaoFaqRef = useRef<HTMLDivElement>(null);
+  const finalDate = new Date(NEXT_WORKSHOP.finalDatetime); // Converte a string ISO de volta para objeto Date
+  const now = new Date();
+  const nextWorkshopHasPassed = now > finalDate;
 
   const scrollToSection = (ref?: React.RefObject<HTMLDivElement | null>) => {
     if (!ref) return;
@@ -87,16 +90,18 @@ function App() {
           className="grid scroll-mt-38 items-center gap-8 md:scroll-mt-26 md:grid-cols-12"
         >
           <div className="space-y-6 md:col-span-7">
-            <button
-              className="group inline-flex items-center gap-2 rounded-full border border-(--primary-color)/20 bg-white px-3 py-1 text-slate-600 shadow-xs transition-all duration-500 hover:cursor-pointer hover:bg-(--accent-color)"
-              onClick={() => scrollToSection(secaoProximaRef)}
-            >
-              <span className="flex h-4 min-h-4 w-4 min-w-4 animate-pulse rounded-full bg-(--secondary-color) group-hover:bg-(--secondary-color-light) md:h-3 md:min-h-3 md:w-3 md:min-w-3"></span>
-              <span className="text-sm font-medium">
-                Inscrições Abertas p/ {`${NEXT_WORKSHOP.title} até `}
-              </span>
-              <span className="text-sm font-bold text-(--accent-color) group-hover:text-black">{`${NEXT_WORKSHOP.details?.registrationDeadline}`}</span>
-            </button>
+            {!nextWorkshopHasPassed && (
+              <button
+                className="group inline-flex items-center gap-2 rounded-full border border-(--primary-color)/20 bg-white px-3 py-1 text-slate-600 shadow-xs transition-all duration-500 hover:cursor-pointer hover:bg-(--accent-color)"
+                onClick={() => scrollToSection(secaoProximaRef)}
+              >
+                <span className="flex h-4 min-h-4 w-4 min-w-4 animate-pulse rounded-full bg-(--secondary-color) group-hover:bg-(--secondary-color-light) md:h-3 md:min-h-3 md:w-3 md:min-w-3"></span>
+                <span className="text-sm font-medium">
+                  Inscrições Abertas p/ {`${NEXT_WORKSHOP.title} até `}
+                </span>
+                <span className="text-sm font-bold text-(--accent-color) group-hover:text-black">{`${NEXT_WORKSHOP.details?.registrationDeadline}`}</span>
+              </button>
+            )}
             <h2 className="text-3xl leading-none font-extrabold tracking-tight text-(--primary-color) md:text-5xl">
               Aprenda a programar com{" "}
               <span className="bg-linear-to-r from-(--secondary-color-light) to-(--secondary-color) bg-clip-text text-transparent">
@@ -266,12 +271,16 @@ function App() {
             <div className="flex flex-wrap items-center justify-between gap-2 bg-(--accent-color) px-6 py-3">
               <div className="flex items-center gap-2 text-sm font-black tracking-wide text-(--primary-color) uppercase">
                 <Calendar size={18} className="stroke-[2.5]" />
-                Inscrição Ativa{" "}
+                {!nextWorkshopHasPassed
+                  ? "Inscrição Ativa"
+                  : "Inscrição Encerrada"}{" "}
                 <CheckCircle
                   size={16}
                   className="shrink-0 text-(--secondary-color)"
                 />{" "}
-                Próxima Parada
+                {!nextWorkshopHasPassed
+                  ? "Próxima Parada"
+                  : "Aguarde o próximo módulo"}
               </div>
               <span className="rounded bg-(--primary-color) px-2 py-0.5 font-mono text-xs font-bold text-white">
                 {NEXT_WORKSHOP.date}
@@ -357,16 +366,22 @@ function App() {
 
               {/* Botão de chamada para ação com gradiente focado no PrimaryColor e AccentColor */}
               <div className="pt-6">
-                <a
-                  href={NEXT_WORKSHOP.details?.registrationUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex w-full transform items-center justify-center gap-2 rounded-xl bg-linear-to-r from-(--accent-color) to-(--accent-color-light) px-4 py-3.5 text-center text-sm font-extrabold text-slate-700 shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:opacity-95 active:translate-y-0"
-                >
-                  Realizar minha inscrição na{" "}
-                  {`${NEXT_WORKSHOP.title.split(":")[0]}`} (Google Forms)
-                  <ExternalLink size={16} />
-                </a>
+                {!nextWorkshopHasPassed ? (
+                  <a
+                    href={NEXT_WORKSHOP.details?.registrationUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex w-full transform items-center justify-center gap-2 rounded-xl bg-linear-to-r from-(--accent-color) to-(--accent-color-light) px-4 py-3.5 text-center text-sm font-extrabold text-slate-700 shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:opacity-95 active:translate-y-0"
+                  >
+                    Realizar minha inscrição na{" "}
+                    {`${NEXT_WORKSHOP.title.split(":")[0]}`} (Google Forms)
+                    <ExternalLink size={16} />
+                  </a>
+                ) : (
+                  <span className="flex w-full transform items-center justify-center gap-2 rounded-xl bg-linear-to-r from-(--accent-color) to-(--accent-color-light) px-4 py-3.5 text-center text-sm font-extrabold text-slate-700 shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:opacity-95 active:translate-y-0">
+                    Inscrições encerradas, aguarde o próximo módulo
+                  </span>
+                )}
                 <p className="mt-2 text-center text-[11px] font-medium text-slate-500">
                   Vagas estritamente limitadas a 25 participantes devido à
                   capacidade do laboratório.

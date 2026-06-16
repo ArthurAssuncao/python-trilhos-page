@@ -35,8 +35,11 @@ export const RailwayTimeline: React.FC = () => {
         </div>
 
         {ALL_WORKSHOPS.map((workshop: Workshop) => {
-          const isCompleted = workshop.status === "completed";
-          const isCurrent = workshop.status === "current";
+          const finalDate = new Date(workshop.finalDatetime); // Converte a string ISO de volta para objeto Date
+          const now = new Date();
+          const isCompleted =
+            workshop.status === "completed" || now > finalDate;
+          const isCurrent = workshop.status === "current" && now < finalDate;
 
           return (
             <div

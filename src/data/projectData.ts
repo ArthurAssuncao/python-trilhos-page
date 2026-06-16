@@ -5,6 +5,7 @@ export interface Workshop {
   title: string;
   description: string;
   date: string;
+  finalDatetime: string;
   status: "completed" | "current" | "upcoming";
   details?: {
     registrationDeadline: string;
@@ -29,6 +30,7 @@ export const ALL_WORKSHOPS: Workshop[] = [
     description:
       "Instalação e configuração de ambientes (VS Code/Spyder), tipos de dados, operações matemáticas e funções de I/O.",
     date: "10 e 12 Junho",
+    finalDatetime: new Date("2026-06-12T18:30:00").toISOString(),
     status: "current",
   },
   {
@@ -37,6 +39,7 @@ export const ALL_WORKSHOPS: Workshop[] = [
     description:
       "Lógica condicional (if, elif, else) e operadores lógicos aplicados à tomada de decisão de Engenharia.",
     date: "Julho/Agosto",
+    finalDatetime: new Date("2026-08-30T18:30:00").toISOString(),
     status: "upcoming",
   },
   {
@@ -45,6 +48,7 @@ export const ALL_WORKSHOPS: Workshop[] = [
     description:
       "Fluxos de repetição (while, for) e manipulação estruturada de Listas, Tuplas e Dicionários.",
     date: "Agosto",
+    finalDatetime: new Date("2026-08-30T18:30:00").toISOString(),
     status: "upcoming",
   },
   {
@@ -53,6 +57,7 @@ export const ALL_WORKSHOPS: Workshop[] = [
     description:
       "Criação de funções customizadas, modularização de escopo e rotinas de leitura/escrita de arquivos locais.",
     date: "Setembro",
+    finalDatetime: new Date("2026-09-30T18:30:00").toISOString(),
     status: "upcoming",
   },
   {
@@ -61,6 +66,7 @@ export const ALL_WORKSHOPS: Workshop[] = [
     description:
       "Limpeza profunda de dados, tratamento de omissões e agregação estruturada de tabelas de engenharia.",
     date: "Outubro",
+    finalDatetime: new Date("2026-10-30T18:30:00").toISOString(),
     status: "upcoming",
   },
   {
@@ -69,6 +75,7 @@ export const ALL_WORKSHOPS: Workshop[] = [
     description:
       "Uso do Matplotlib integrado ao Pandas para geração de gráficos científicos e relatórios analíticos de alta fidelidade.",
     date: "Novembro",
+    finalDatetime: new Date("2026-11-30T18:30:00").toISOString(),
     status: "upcoming",
   },
   {
@@ -77,6 +84,7 @@ export const ALL_WORKSHOPS: Workshop[] = [
     description:
       "Desafio prático com bases de dados públicas (ANTT / Censo). Processo completo focado em potencial publicação científica de artigos.",
     date: "Dezembro",
+    finalDatetime: new Date("2026-12-30T18:30:00").toISOString(),
     status: "upcoming",
   },
 ];
@@ -88,6 +96,7 @@ export const NEXT_WORKSHOP: Workshop = {
   title: NEXT_WORKSHOP_SIMPLE?.title || "",
   description: NEXT_WORKSHOP_SIMPLE?.description || "",
   date: NEXT_WORKSHOP_SIMPLE?.date || "",
+  finalDatetime: NEXT_WORKSHOP_SIMPLE?.finalDatetime || "",
   status: NEXT_WORKSHOP_SIMPLE?.status || "current",
   details: {
     registrationDeadline: "09 de Junho",
