@@ -38,7 +38,7 @@ export const ALL_WORKSHOPS: Workshop[] = [
     title: "Oficina 2: Estruturas de Decisão",
     description:
       "Lógica condicional (if, elif, else) e operadores lógicos aplicados à tomada de decisão de Engenharia.",
-    date: "Julho/Agosto",
+    date: "Agosto",
     finalDatetime: new Date("2026-08-30T18:30:00").toISOString(),
     status: "upcoming",
   },
@@ -89,7 +89,7 @@ export const ALL_WORKSHOPS: Workshop[] = [
   },
 ];
 
-const NEXT_WORKSHOP_SIMPLE = ALL_WORKSHOPS.find((w) => w.id === 1);
+const NEXT_WORKSHOP_SIMPLE = ALL_WORKSHOPS.find((w) => w.id === 2);
 
 export const NEXT_WORKSHOP: Workshop = {
   id: NEXT_WORKSHOP_SIMPLE?.id || 0,
@@ -102,23 +102,20 @@ export const NEXT_WORKSHOP: Workshop = {
     registrationDeadline: "09 de Junho",
     duration: "1h30min totais (repetido em 2 oficinas)",
     schedule: [
-      "Quarta-feira (10/06) — 13:00 às 14:30",
-      "Sexta-feira (11/06) — 17:00 às 18:30",
+      "A definir"
+      /*"Quarta-feira (10/06) — 13:00 às 14:30",
+      "Sexta-feira (11/06) — 17:00 às 18:30",*/
     ],
     content: [
-      "Instalação e configuração do Python (última versão estável)",
-      "Ambientes de desenvolvimento: VS Code (extensões Python) e Spyder",
-      "Tipos de dados numéricos: int (inteiros) e float (pontos flutuantes)",
-      "Tipos de dados textuais: str (strings)",
-      "Operações matemáticas básicas (+, -, *, /, //, %, **)",
-      "Entrada de dados com input() e tratamento básico com Conversão entre tipos (int(), float(), str())",
-      "Saída formatada com print() utilizando f-strings",
-      "Formatação de números (casas decimais, separadores de milhar)",
-      "Comentários em códigos",
-      "Boas práticas de nomenclatura de variávels: snake_case e camelCase",
-      "Criação de código simples e execução pelo terminal",
-    ],
-    registrationUrl: "https://forms.gle/6LJx7eQMNjtyveWF8", // Link externo do formulário
+  "Revisão rápida de operadores relacionais (>, <, ==, !=, >=, <=)",
+  "Operadores lógicos (and, or, not)",
+  "Estrutura if / elif / else",
+  "Aninhamento de condicionais",
+  "Uso de condicionais com entrada de dados (input)",
+  "Validação de condições com intervalos e faixas de valores",
+  "Exemplos práticos aplicados à Engenharia (decisões com parâmetros de segurança, limites, alertas)",
+],
+    registrationUrl: "", // Link externo do formulário
   },
 };
 
