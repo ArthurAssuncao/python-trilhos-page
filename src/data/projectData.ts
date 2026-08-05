@@ -99,12 +99,11 @@ export const NEXT_WORKSHOP: Workshop = {
   finalDatetime: NEXT_WORKSHOP_SIMPLE?.finalDatetime || "",
   status: NEXT_WORKSHOP_SIMPLE?.status || "current",
   details: {
-    registrationDeadline: "09 de Junho",
+    registrationDeadline: "11 de Agosto (vespera da oficina)",
     duration: "1h30min totais (repetido em 2 oficinas)",
     schedule: [
-      "A definir"
-      /*"Quarta-feira (10/06) — 13:00 às 14:30",
-      "Sexta-feira (11/06) — 17:00 às 18:30",*/
+      "Quarta-feira (12/08) — 17:00 às 18:30",
+      "Quinta-feira (13/08) — 17:00 às 18:30",
     ],
     content: [
   "Revisão rápida de operadores relacionais (>, <, ==, !=, >=, <=)",
@@ -115,7 +114,7 @@ export const NEXT_WORKSHOP: Workshop = {
   "Validação de condições com intervalos e faixas de valores",
   "Exemplos práticos aplicados à Engenharia (decisões com parâmetros de segurança, limites, alertas)",
 ],
-    registrationUrl: "", // Link externo do formulário
+    registrationUrl: "https://forms.gle/RSEZ8yHVhmf7gGrQ7", // Link externo do formulário
   },
 };
 
