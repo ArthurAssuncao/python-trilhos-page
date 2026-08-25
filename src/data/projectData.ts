@@ -31,7 +31,7 @@ export const ALL_WORKSHOPS: Workshop[] = [
       "Instalação e configuração de ambientes (VS Code/Spyder), tipos de dados, operações matemáticas e funções de I/O.",
     date: "10 e 12 Junho",
     finalDatetime: new Date("2026-06-12T18:30:00").toISOString(),
-    status: "current",
+    status: "completed",
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ export const ALL_WORKSHOPS: Workshop[] = [
       "Lógica condicional (if, elif, else) e operadores lógicos aplicados à tomada de decisão de Engenharia.",
     date: "Agosto",
     finalDatetime: new Date("2026-08-30T18:30:00").toISOString(),
-    status: "upcoming",
+    status: "completed",
   },
   {
     id: 3,
@@ -48,8 +48,8 @@ export const ALL_WORKSHOPS: Workshop[] = [
     description:
       "Fluxos de repetição (while, for) e manipulação estruturada de Listas, Tuplas e Dicionários.",
     date: "Agosto",
-    finalDatetime: new Date("2026-08-30T18:30:00").toISOString(),
-    status: "upcoming",
+    finalDatetime: new Date("2026-09-03T17:00:00").toISOString(),
+    status: "current",
   },
   {
     id: 4,
@@ -89,7 +89,7 @@ export const ALL_WORKSHOPS: Workshop[] = [
   },
 ];
 
-const NEXT_WORKSHOP_SIMPLE = ALL_WORKSHOPS.find((w) => w.id === 2);
+const NEXT_WORKSHOP_SIMPLE = ALL_WORKSHOPS.find((w) => w.id === 3);
 
 export const NEXT_WORKSHOP: Workshop = {
   id: NEXT_WORKSHOP_SIMPLE?.id || 0,
@@ -99,22 +99,25 @@ export const NEXT_WORKSHOP: Workshop = {
   finalDatetime: NEXT_WORKSHOP_SIMPLE?.finalDatetime || "",
   status: NEXT_WORKSHOP_SIMPLE?.status || "current",
   details: {
-    registrationDeadline: "10 de Agosto (vespera da oficina)",
-    duration: "1h30min totais (repetido em 2 oficinas)",
+    registrationDeadline: "02 de Setembro (vespera da oficina)",
+    duration: "1h30min",
     schedule: [
-      "Quarta-feira (12/08) — 17:00 às 18:30",
-      "Quinta-feira (13/08) — 17:00 às 18:30",
+      "Quinta-feira (03/09) — 17:00 às 18:30",
     ],
-    content: [
-  "Revisão rápida de operadores relacionais (>, <, ==, !=, >=, <=)",
-  "Operadores lógicos (and, or, not)",
-  "Estrutura if / elif / else",
-  "Aninhamento de condicionais",
-  "Uso de condicionais com entrada de dados (input)",
-  "Validação de condições com intervalos e faixas de valores",
-  "Exemplos práticos aplicados à Engenharia (decisões com parâmetros de segurança, limites, alertas)",
+    const content = [
+  "Conceito de iteração e a importância de loops na programação",
+  "Estrutura e funcionamento do loop for (iteração sobre sequências)",
+  "Uso do loop while para repetição baseada em condição",
+  "Controle de fluxo em loops: break, continue e else",
+  "Introdução a listas: criação, indexação, fatiamento e métodos básicos",
+  "Percorrendo listas com loops e enumerate",
+  "Tuplas: características, imutabilidade e uso em situações específicas",
+  "Dicionários: estrutura de chave-valor, criação, acesso, inserção e remoção",
+  "Iteração sobre dicionários com items(), keys() e values()",
+  "Compreensão de listas (list comprehension) e sua aplicação",
+  "Exemplos práticos: uso de listas, tuplas e dicionários em problemas de Engenharia e análise de dados",
 ],
-    registrationUrl: "https://forms.gle/RSEZ8yHVhmf7gGrQ7", // Link externo do formulário
+    registrationUrl: "https://forms.gle/ZM4kTo66r5nPuk9F8", // Link externo do formulário
   },
 };
 
