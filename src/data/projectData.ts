@@ -99,7 +99,7 @@ export const NEXT_WORKSHOP: Workshop = {
   finalDatetime: NEXT_WORKSHOP_SIMPLE?.finalDatetime || "",
   status: NEXT_WORKSHOP_SIMPLE?.status || "current",
   details: {
-    registrationDeadline: "02 de Setembro (vespera da oficina)",
+    registrationDeadline: "01 de Setembro",
     duration: "1h30min",
     schedule: [
       "Quinta-feira (03/09) — 17:00 às 18:30",
