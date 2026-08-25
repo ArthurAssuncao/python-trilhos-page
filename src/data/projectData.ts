@@ -104,7 +104,7 @@ export const NEXT_WORKSHOP: Workshop = {
     schedule: [
       "Quinta-feira (03/09) — 17:00 às 18:30",
     ],
-    const content = [
+    content: [
   "Conceito de iteração e a importância de loops na programação",
   "Estrutura e funcionamento do loop for (iteração sobre sequências)",
   "Uso do loop while para repetição baseada em condição",
