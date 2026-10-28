@@ -57,7 +57,7 @@ export const ALL_WORKSHOPS: Workshop[] = [
     description:
       "Criação de funções customizadas, modularização de escopo e rotinas de leitura/escrita de arquivos locais.",
     date: "Outubro",
-    finalDatetime: new Date("2026-10-28T18:30:00").toISOString(),
+    finalDatetime: new Date("2026-10-29T18:30:00").toISOString(),
     status: "current",
   },
   {
