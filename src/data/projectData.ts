@@ -89,7 +89,7 @@ export const ALL_WORKSHOPS: Workshop[] = [
   },
 ];
 
-const NEXT_WORKSHOP_SIMPLE = ALL_WORKSHOPS.find((w) => w.id === 3);
+const NEXT_WORKSHOP_SIMPLE = ALL_WORKSHOPS.find((w) => w.id === 4);
 
 export const NEXT_WORKSHOP: Workshop = {
   id: NEXT_WORKSHOP_SIMPLE?.id || 0,
