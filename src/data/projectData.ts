@@ -49,16 +49,16 @@ export const ALL_WORKSHOPS: Workshop[] = [
       "Fluxos de repetição (while, for) e manipulação estruturada de Listas, Tuplas e Dicionários.",
     date: "Agosto",
     finalDatetime: new Date("2026-09-03T17:00:00").toISOString(),
-    status: "current",
+    status: "completed",
   },
   {
     id: 4,
     title: "Oficina 4: Modularização e Persistência",
     description:
       "Criação de funções customizadas, modularização de escopo e rotinas de leitura/escrita de arquivos locais.",
-    date: "Setembro",
-    finalDatetime: new Date("2026-09-30T18:30:00").toISOString(),
-    status: "upcoming",
+    date: "Outubro",
+    finalDatetime: new Date("2026-10-28T18:30:00").toISOString(),
+    status: "current",
   },
   {
     id: 5,
