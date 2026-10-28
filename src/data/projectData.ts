@@ -99,25 +99,23 @@ export const NEXT_WORKSHOP: Workshop = {
   finalDatetime: NEXT_WORKSHOP_SIMPLE?.finalDatetime || "",
   status: NEXT_WORKSHOP_SIMPLE?.status || "current",
   details: {
-    registrationDeadline: "01 de Setembro",
+    registrationDeadline: "28 de Outubro",
     duration: "1h30min",
     schedule: [
-      "Quinta-feira (03/09) — 17:00 às 18:30",
+      "Quinta-feira (29/09) — 17:00 às 18:30",
     ],
-    content: [
-  "Conceito de iteração e a importância de loops na programação",
-  "Estrutura e funcionamento do loop for (iteração sobre sequências)",
-  "Uso do loop while para repetição baseada em condição",
-  "Controle de fluxo em loops: break, continue e else",
-  "Introdução a listas: criação, indexação, fatiamento e métodos básicos",
-  "Percorrendo listas com loops e enumerate",
-  "Tuplas: características, imutabilidade e uso em situações específicas",
-  "Dicionários: estrutura de chave-valor, criação, acesso, inserção e remoção",
-  "Iteração sobre dicionários com items(), keys() e values()",
-  "Compreensão de listas (list comprehension) e sua aplicação",
-  "Exemplos práticos: uso de listas, tuplas e dicionários em problemas de Engenharia e análise de dados",
+   content: [
+  "Conceito de modularização e sua importância na organização do código",
+  "Definição e criação de funções em Python",
+  "Parâmetros e argumentos: posicionais, nomeados e padrão",
+  "Retorno de valores e funções sem retorno (None)",
+  "Introdução à persistência de dados: por que armazenar informações permanentemente",
+  "Manipulação de arquivos de texto: abertura, leitura, escrita e fechamento",
+  "Modos de abertura de arquivos: 'r', 'w', 'a' e 'x'",
+  "Uso do bloco with para garantir o fechamento seguro de arquivos",
+  "Exemplos práticos: uso de funções e persistência em problemas de Engenharia e análise de dados",
 ],
-    registrationUrl: "https://forms.gle/ZM4kTo66r5nPuk9F8", // Link externo do formulário
+    registrationUrl: "https://forms.gle/UXAy2FErExESmG4E9", // Link externo do formulário
   },
 };
 
